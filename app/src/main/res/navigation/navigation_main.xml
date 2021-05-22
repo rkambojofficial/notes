@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/note_list_fragment">
+
+    <fragment
+        android:id="@+id/note_list_fragment"
+        android:name="com.rubykamboj.notes.ui.note.list.NoteListFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_note_list">
+
+        <action
+            android:id="@+id/action_note_list_fragment_to_add_note_fragment"
+            app:destination="@id/add_note_fragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit" />
+
+        <action
+            android:id="@+id/action_note_list_fragment_to_note_detail_fragment"
+            app:destination="@id/note_detail_fragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/add_note_fragment"
+        android:name="com.rubykamboj.notes.ui.note.add.AddNoteFragment"
+        android:label="@string/new_note"
+        tools:layout="@layout/fragment_add_note" />
+
+    <fragment
+        android:id="@+id/note_detail_fragment"
+        android:name="com.rubykamboj.notes.ui.note.detail.NoteDetailFragment"
+        android:label="@string/note_detail"
+        tools:layout="@layout/fragment_note_detail">
+
+        <action
+            android:id="@+id/action_note_detail_fragment_to_edit_note_fragment"
+            app:destination="@id/edit_note_fragment"
+            app:enterAnim="@anim/anim_enter"
+            app:exitAnim="@anim/anim_exit"
+            app:popEnterAnim="@anim/anim_pop_enter"
+            app:popExitAnim="@anim/anim_pop_exit" />
+
+        <argument
+            android:name="noteId"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/edit_note_fragment"
+        android:name="com.rubykamboj.notes.ui.note.edit.EditNoteFragment"
+        android:label="@string/edit_note"
+        tools:layout="@layout/fragment_edit_note">
+
+        <argument
+            android:name="noteId"
+            app:argType="long" />
+    </fragment>
+</navigation>
